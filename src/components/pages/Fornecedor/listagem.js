@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Col, FormGroup, Badge, Button, Label, Input, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
-import './cliente.css'
+import './fornecedor.css'
 
 
 export default class Clientes extends Component {
@@ -8,7 +8,7 @@ export default class Clientes extends Component {
     return (
         <div>            
             <Col sm="12">
-            <h2>Lista de Clientes</h2>
+            <h2>Lista de Fornecedores</h2>
                 <Card className="cardLista">
                 <div className="pesqCliente">    
                     <Col sm="6">

@@ -9,9 +9,9 @@ export default function Sidebar() {
   return (
     <aside className="sidebar">
         <Link to="/clientes"><button ><FontAwesomeIcon className="icone" icon={faAddressCard} />Clientes</button></Link>
-        <button><FontAwesomeIcon className="icone" icon={faPaw} />Animais</button>
-        <button><FontAwesomeIcon className="icone" icon={faCubes} />Produtos</button>
-        <button><FontAwesomeIcon className="icone" icon={faTruck} />Fornecedor</button>
+        <Link to="/animais"><button><FontAwesomeIcon className="icone" icon={faPaw} />Animais</button></Link>
+        <Link to="/produtos"><button><FontAwesomeIcon className="icone" icon={faCubes} />Produtos</button></Link>
+        <Link to="/fornecedor"><button><FontAwesomeIcon className="icone" icon={faTruck} />Fornecedor</button></Link>
     </aside>
   );
 }

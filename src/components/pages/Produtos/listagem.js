@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Card, Col, FormGroup, Badge, Button, Label, Input, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
-import './cliente.css'
+import './produtos.css'
 
 
 export default class Clientes extends Component {
   render() {
     return (
         <div>            
-            <Col sm="12">
-            <h2>Lista de Clientes</h2>
+            <Col sm="12">            
                 <Card className="cardLista">
+                <h2>Lista de Produtos</h2>
                 <div className="pesqCliente">    
                     <Col sm="6">
                         <FormGroup>
