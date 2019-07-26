@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { Card, Col, FormGroup, Badge, Button, Label, Input, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
 import './cliente.css'
+
 
 
 export default class Clientes extends Component {
@@ -8,15 +10,17 @@ export default class Clientes extends Component {
     return (
         <div>            
             <Col sm="12">
-            <h2>Lista de Clientes</h2>
                 <Card className="cardLista">
+                <h2>Lista de Clientes</h2>
                 <div className="pesqCliente">    
                     <Col sm="6">
                         <FormGroup>
                             <Input type="text" name="pesquisa" id="pesquisa" placeholder="Quem você procura ?" />
                         </FormGroup>
                     </Col>
-                    <Button className="btnNovo" color="info">+ Novo</Button>
+                    <Link to="/clientesAdd">
+                        <Button className="btnNovo" color="info">+ Novo</Button>
+                    </Link>
                 </div>
                     <Table hover responsive size="sm">
                         <thead>

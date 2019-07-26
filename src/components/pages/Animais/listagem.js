@@ -8,8 +8,8 @@ export default class Clientes extends Component {
     return (
         <div>            
             <Col sm="12">
-            <h2>Lista de Animais</h2>
                 <Card className="cardLista">
+                <h2>Lista de Animais</h2>   
                 <div className="pesqCliente">    
                     <Col sm="6">
                         <FormGroup>
