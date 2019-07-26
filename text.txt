@@ -1,0 +1,6 @@
+campos cadastro de cliente:
+id, nome, dtNasc, tipo, cep, endereço, num, comp, bairro, cidade, estado
+email , telefones
+
+campos cadastro pet:
+id, id_cliente, nome, especie, raca, peso, pelagem, dtNasc, sexo, tipo, observacao
