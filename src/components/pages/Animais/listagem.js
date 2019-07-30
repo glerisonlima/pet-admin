@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 import { Card, Col, FormGroup, Badge, Button, Label, Input, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
 import './animais.css'
 
@@ -16,7 +17,7 @@ export default class Clientes extends Component {
                             <Input type="text" name="pesquisa" id="pesquisa" placeholder="Quem você procura ?" />
                         </FormGroup>
                     </Col>
-                    <Button className="btnNovo" color="info">+ Novo</Button>
+                    <Link to="/animaisAdd"><Button className="btnNovo" color="info">+ Novo</Button></Link>
                 </div>
                     <Table hover responsive size="sm">
                         <thead>

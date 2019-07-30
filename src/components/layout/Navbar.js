@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
   return (
     <div className="barra">
-        <Link to="/"><button>Home</button></Link>
+        <Link to="/">Home</Link>
         <a href="#">Link</a>
         <a href="#">Link</a>
         <a href="#">Link</a>

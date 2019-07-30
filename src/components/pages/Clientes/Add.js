@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import axios from 'axios';
 import {Card, Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './cliente.css'
 
-export default class Add extends Component {
+/************ API PARA CONSULTA DE CEP ***********************/
+const apiCep = "https://webmaniabr.com/api/1/cep/"
+const app_key = "M32cx3uqBa27prh5vcY3Svv5etC8cGZR"
+const app_secret = "U8Ea0RwqJRr1brWl0ydJQmJzl0UWuk4FTvBxtP9vLaJYzTLa"
 
-state={
+/* https://webmaniabr.com/api/1/cep/60764-185/?app_key=M32cx3uqBa27prh5vcY3Svv5etC8cGZR&app_secret=U8Ea0RwqJRr1brWl0ydJQmJzl0UWuk4FTvBxtP9vLaJYzTLa */
+
+const stateInicial={
     id: "",
     nome:"",
     dtNasc: "",
@@ -19,6 +26,40 @@ state={
     email: "",
     telefone: ""
 }
+
+
+
+export default class Add extends Component {
+
+constructor(props){
+    super(props)
+
+    this.buscaCep = this.buscaCep.bind(this);
+}
+
+state = stateInicial;
+
+
+handlerCep = (event) => {
+    this.setState({cep: event.target.value})
+}
+
+buscaCep = () => {
+        axios.get(`${apiCep}${this.state.cep}/?app_key=${app_key}&app_secret=${app_secret}`)
+            .then(res => {
+                if(!res.data.error){
+                    this.setState({
+                        endereco: res.data.endereco,
+                        bairro: res.data.bairro,
+                        cidade: res.data.cidade,
+                        estado: res.data.uf })
+                }else{
+                    alert(res.data.error)
+                }
+            })
+}
+salvarCliente() {alert("Great Shot!");}
+
   render() {
     const estados = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']
     return (
@@ -53,13 +94,13 @@ state={
                         <Col md={2}>
                             <FormGroup>
                             <Label for="cep">Cep</Label>
-                            <Input type="text" name="cep" id="cep"/>
+                            <Input type="text" onBlur={this.buscaCep} onChange={this.handlerCep} value={this.state.cep} id="cep"/>
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                             <Label for="endereco">Endereço</Label>
-                            <Input type="text" name="endereco" id="endereco" placeholder="nome da rua (logradouro)"/>
+                            <Input type="text" value={this.state.endereco} id="endereco" placeholder="nome da rua (logradouro)"/>
                             </FormGroup>
                         </Col>
                         <Col md={1}>
@@ -71,15 +112,21 @@ state={
                         <Col md={3}>
                             <FormGroup>
                             <Label for="bairro">Bairro</Label>
-                            <Input type="text" name="bairro" id="bairro"/>
+                            <Input type="text" value={this.state.bairro} id="bairro"/>
                             </FormGroup>  
                         </Col>
                     </Row>
                     <Row form>
                         <Col md={3}>
+                            <FormGroup>
+                            <Label for="cidade">Cidade</Label>
+                            <Input type="text" value={this.state.cidade} id="telefone"/>
+                            </FormGroup>
+                        </Col> 
+                        <Col md={3}>
                         <FormGroup>
                             <Label for="estado">Estado</Label>
-                            <Input type="select" name="estado" id="estado">
+                            <Input type="select" value={this.state.estado} id="estado">
     {estados.map((sigla) =><option key={sigla}>{sigla}</option>)}          
                             </Input>
                             </FormGroup>
@@ -92,8 +139,8 @@ state={
                         </Col>                        
                     </Row>
                     
-                    <Button outline color="primary">Salvar</Button>
-                    <Button className="btnCanc" outline color="secondary">Cancelar</Button>
+                    <Button outline color="primary" onClick={this.salvarCliente}>Salvar</Button>
+                    <Link to="/clientes"><Button type="button" className="btnCanc" outline color="secondary">Cancelar</Button></Link>
                 </Form>
             </Card>
         </Col>
