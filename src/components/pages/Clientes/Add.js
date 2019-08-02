@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import {Card, Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Card, Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './cliente.css'
 
 /************ API PARA CONSULTA DE CEP ***********************/
@@ -127,9 +127,9 @@ salvarCliente() {alert("Great Shot!");}
                         <FormGroup>
                             <Label for="estado">Estado</Label>
                             <Input type="select" value={this.state.estado} id="estado">
-    {estados.map((sigla) =><option key={sigla}>{sigla}</option>)}          
+                                {estados.map((sigla) =><option key={sigla}>{sigla}</option>)}          
                             </Input>
-                            </FormGroup>
+                        </FormGroup>
                         </Col>    
                         <Col md={3}>
                             <FormGroup>

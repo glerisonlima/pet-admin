@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
-import { Card, Col, FormGroup, Badge, Button, Label, Input, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
+import { Card, Col, FormGroup, Badge, Button, Input, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
 import './animais.css'
 
 

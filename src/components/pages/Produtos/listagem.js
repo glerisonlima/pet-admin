@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, FormGroup, Badge, Button, Label, Input, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
+import { Card, Col, FormGroup, Badge, Button, Input, Table, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
 import './produtos.css'
 
 
